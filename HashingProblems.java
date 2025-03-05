@@ -148,11 +148,11 @@ class HashingProblems {
   public int twoSums(int[] numbers, int k) {
 
       /*
-       * Specifically asking the code how many pairs of numbers in an array have a difference of k
-       * We have to check all pairs (a, b) where |a - b| = k
-       * We are trying to avoide nested loops
-       * To achieve a time complexity of O(n) the cood needs to run in linear time 
-       * Using a HashMap will quickly check if certain values exist in the array & allow to check in constant time
+       * The goal is to find how many pairs of numbers in an array have an absolute difference of k
+       * We have to check for all pairs (a, b) where |a - b| = k 
+       * Goal is to try to avoid nested loops and achieve a time complexity of O(n) where the code runs in linear time 
+       * Using a HashMap will quickly check if certain values exist in the array & allow to check in constant time 0(1)
+       * The difference between 2 numbers can be both positive and negative --> in order to find all pairs where the absolute difference is exactly k, we have to account for both num - k and num + k 
        */
 
       return -1;
