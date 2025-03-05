@@ -153,6 +153,24 @@ class HashingProblems {
        * Goal is to try to avoid nested loops and achieve a time complexity of O(n) where the code runs in linear time 
        * Using a HashMap will quickly check if certain values exist in the array & allow to check in constant time 0(1)
        * The difference between 2 numbers can be both positive and negative --> in order to find all pairs where the absolute difference is exactly k, we have to account for both num - k and num + k 
+       * We have to check for pair difference: for each num, how many other numbers in the array form a pair with num so that their absolute diff. is k?
+       * num - k shows if there is a number in the array that k is less than num
+       * num + k shows if there is a number in the array that k is greater than num
+       *
+       * Create a HashMap called arrayCount to store the count of numbers we encounter while iterating over the array (store numbers & their frequencies)
+       * Initialize a counter count to keep track of the number of pairs that have a difference of k
+       *
+       * Iterate over the array and for each number in the array
+       *     check if num-k is already in the arrayCount HashMap
+       *        if yes, increment the count 
+       *
+       *     check if num+k is already in the arrayCount HashMap
+       *        if yes, increment the count 
+       *
+       *    if num is already in the map, increment its count by 1
+       *    if nim is not in the map, add it to the map with an initial count of 1
+       *
+       * return the count which contains the total number of valid pairs with a difference of k
        */
 
       return -1;
