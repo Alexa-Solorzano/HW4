@@ -146,8 +146,7 @@ class HashingProblems {
    */
 
   public int twoSums(int[] numbers, int k) {
-
-      /*
+       /*
        * The goal is to find how many pairs of numbers in an array have an absolute difference of k
        * We have to check for all pairs (a, b) where |a - b| = k 
        * Goal is to try to avoid nested loops and achieve a time complexity of O(n) where the code runs in linear time 
@@ -172,8 +171,29 @@ class HashingProblems {
        *
        * return the count which contains the total number of valid pairs with a difference of k
        */
+      
+      //Initialize a HashMap to store the numbers and their freq.
+      HashMap<Integer, Integer> arrayCount = new HashMap<>();
+      int count = 0;
+      //Iterate through numbers array
+      for(int num : numbers) {
+        //containsKey is a public method in myHashMap where it returns true if this map contains a mapping for the specified key.
+          if(arrayCount.containsKey(num - k)){ //check if num - k exists in the map
+              count++; //increment the count 
+          }
 
-      return -1;
+          if(arrayCount.containsKey(num + k)){ //check if num + k exists in the map
+              count++;
+          }
+          // add the current number to the HashMap or increment its count 
+          if(arrayCount.containsKey(num)){ // checks if the key num already exists in the arrayCount HashMap
+              arrayCount.put(num, arrayCount.get(num) +1); //if it returns true then we retrieve the current count (freq.) of num from the hashmap (arrayCount.get(num)) and increment that count by 1 to indicate that we've encountered num one more time. then update the hasmap with the new count (arrayCount.put())
+          } else { //if containsKey returns false and the number does not exist in the map
+              arrayCount.put(num, 1); //add it to the arrayCount hashmap with a count of appearing once
+          }
+      }
+      //return the total count of valid pairs
+      return count;
   }
 
 } /* end class HashingProblems */
