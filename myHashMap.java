@@ -222,14 +222,27 @@ class myHashMap<K,V> {
     public V remove(K key) {
 
         /*
-         * ADD YOUR CODE HERE
+         * use the hash function to determine the bucket index where the key-value pair might be stores
+         * 
+         * Get the head in the linked list at that index 
+         * keep track of the previous node for deletion 
          *
-         * Review the code in the whole object to understand teh data structures layout.
-         * Additionally, review the method put() for inserting a new Key / Value pair into
-         * the HashMap. This method will do the opposite by removing an element. Do see
-         * the return value discussion in this method's prologue to make sure the correct
-         * return value is returned the invoking function based on the remove outcome.
-         */
+         * iterate through the linked list in the current bucket
+         * if the key matches, start the process to remove the node 
+         *   if the node that needs to be deleted is the head in the list
+         *     update the head of the linked list to the next node (effectively deleting the prev. head)
+         *   else the node in need of deletion is not the head
+         *     link the previous node to the next node of the current node 
+         *
+         *   decrease the size of the hash map 
+         *   return the value associated with the removed key
+         *
+         * update the previous node to the current one
+         * move to the next node in the linked list.
+         *
+         * if the key is not found
+         *  return null
+         */  
 
         return null;
     }
