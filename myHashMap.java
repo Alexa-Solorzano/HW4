@@ -460,13 +460,26 @@ class myHashMap<K,V> {
     public boolean replace(K key, V oldVal, V newVal) {
 
         /*
-         * ADD YOUR CODE HERE
+         * Retrieve the current value associated with the key 
          *
-         * This method should apply the precondition (aka, the Key already exists with the
-         * value 'oldval', and is so, it SHOULD call replace(K, V) for code reuse.
+         * if the key is not found OR if the current value doesn't match oldVal
+         *   key doesn't exist or the value doens't match oldVal = return false
+         *
+         * then we should assum the key is found and the value matches oldVal, so we can move forward and replace it
+         * call the existing replace method and replace the key with the new value
+         * return true to indicate that the replacement was successful
          */
+        V originalValue = get(key); //used get(key) method to retrieve the current value (originalValue) associated with the key. If the key exists (which we need to make sure it is already mapped), originalValue should return the value associated with it. If not, originalValue will return null
 
-        return false;
+        if(originalValue == null || //if the key is not found
+           (!originalValue.equals(oldVal)) ) { //if the current value associated with the key does not match the oldVal
+            return false; //replacement was not successful 
+        }
+
+        // Key was found and its value equals the passed
+        // parameter 'oldVal'
+        replace(key, newVal);
+        return true; //replacement was successful 
     }
 
 
