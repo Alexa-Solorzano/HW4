@@ -80,9 +80,17 @@ class HashingProblems {
       ArrayList<String> result = new ArrayList<>();
 
       /*
-       * ADD YOUR CODE HERE
+       * Create an empty list to store the results
+       * Get the set of keys from the map
+       * Create an iterator for the set of keys
        *
-       * Hint: Consider iterating over the HashMap using the keySet method.
+       * Iterate over the keySet using the iterator 
+       * while iterator has more elements 
+       *    get the next key from the iterator 
+       *    if the key is odd
+       *        add the corresponding value to the result list
+       *
+       * return the result list 
        */
 
 
