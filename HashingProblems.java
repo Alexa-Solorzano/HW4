@@ -49,8 +49,22 @@ class HashingProblems {
          *
          * otherwise, return the avg (sum/count)
          */
+        double sum = 0.0; //store sum of values from the HashMap
+        int count = 0; //store the count of valid keys (found both in HashMap and array)
+        //iterate through the array
+        for(int i = 0; i < array.length; i++){
+            int key = array[i]; //get the key from the array using the index
+            if(map.containsKey(key)){ //refers to public method in myHashMap.java where containsKey(k) returns true if the map contains a mapping for this specific key
+               sum += map.get(key); //add the value from the map for the matching key
+               count++; //increment the count of valid keys
+            }
+        }
+        // if no valid keys are found (count is zero), return 0.0/0.0
+        if(count == 0){
+        return 0.0 / 0.0;
+        }
 
-         return 0.0 / 0.0;
+        return sum / count; //average of the values
   }
 
 
