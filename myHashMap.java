@@ -446,8 +446,20 @@ class myHashMap<K,V> {
          *
          * if the key is not found, return null 
          */
+        int index = getBucketIndex(key);
 
-        return val;
+        HashNode<K, V> head = bucket.get(index);
+
+        while(head != null){
+            if(head.key.equals(key)){
+                V oldValue = head.value;
+                head.value = val;
+                return oldValue;
+            }
+            head = head.next;
+        }
+        
+        return null;
     }
 
     
