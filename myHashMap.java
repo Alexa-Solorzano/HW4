@@ -220,7 +220,6 @@ class myHashMap<K,V> {
      */
 
     public V remove(K key) {
-
         /*
          * use the hash function to determine the bucket index where the key-value pair might be stores
          * 
@@ -243,7 +242,25 @@ class myHashMap<K,V> {
          * if the key is not found
          *  return null
          */  
+        int index = getBucketIndex(key); // both put() and remove() need to calculate the index of the bucket where the key might be located
 
+        HashNode<K, V> head = bucket.get(index);
+        HashNode<K,V> prev = null;
+
+        while(head != null){
+            if(head.key.equals(key)){
+                bucket.set(index, head.next);
+            } else {
+                prev.next = head.next;
+            }
+
+            size--;
+            return head.value;
+        }
+        //move to the next node in the linked list
+        prev = head;
+        head = head.next;
+    }
         return null;
     }
 
