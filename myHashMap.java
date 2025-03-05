@@ -249,7 +249,8 @@ class myHashMap<K,V> {
 
         while(head != null){
             if(head.key.equals(key)){
-                bucket.set(index, head.next);
+                if(prev == null){
+                    bucket.set(index, head.next);
             } else {
                 prev.next = head.next;
             }
@@ -261,6 +262,7 @@ class myHashMap<K,V> {
         prev = head;
         head = head.next;
     }
+
         return null;
     }
 
@@ -292,7 +294,7 @@ class myHashMap<K,V> {
 
         return true; //show that the removal was successful 
     }
-    }
+    
 
 
     /**
