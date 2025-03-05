@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Alexa Solorzano COMP 272 001 ***
  *
  * This HashingProblems object contains three methods / problems that you must
  * complete utilize the HashMap object within the Java's Collection Framework Library.
@@ -34,11 +34,20 @@ class HashingProblems {
     public double getAverage(HashMap<Integer, Integer> map, int[] array) {
 
         /*
-         * ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOU NAME AT TOP OF FILE
+         * initialize sum which will store the total of the values found in the map for matching keys
+         * initialize the count which will count how many valid keys (aka those that are both present in the hashmap and array) are found
+         * this way we can easily get the average later
          *
-         * Note: if NO values found in common between the HashMap and supplied array,
-         * returning 0.0 is NOT correct, as that is not the average value. Whereas
-         * returning 0.0/0.0 IS correct (which would return a non-number).
+         * iterate over each key in the array:
+         * for each key in the array
+         * check if the key exists in the map:
+         *     if key is present in the hashmap
+         *        since the key is found, add the corresponding valye from the map to sum and increment count
+         *
+         * if count is 0 / no valid keys are found 
+         * return 0.0/0.0
+         *
+         * otherwise, return the avg (sum/count)
          */
 
          return 0.0 / 0.0;
