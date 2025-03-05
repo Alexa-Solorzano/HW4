@@ -76,9 +76,6 @@ class HashingProblems {
      */
 
   public ArrayList<String> odd(HashMap<Integer, String> map) {
-    
-      ArrayList<String> result = new ArrayList<>();
-
       /*
        * Create an empty list to store the results
        * Get the set of keys from the map
@@ -92,8 +89,21 @@ class HashingProblems {
        *
        * return the result list 
        */
+    
+      ArrayList<String> result = new ArrayList<>(); //initialize new array list that will hold the result of all the odd keys
 
+      Set<Integer> keySet = map.keySet(); // refers to public method in myHashMap.java where it returns a 'Set' view of the keys contained in the map.
 
+      Iterator<Integer> iterator = keySet.iterator();
+//iterate over the keySet using the iterator 
+      while(iterator.hasNext()){
+          Integer key = iterator.next(); //get the next key from the iterator
+
+          if(key % 2 != 0){ //check if the key is odd
+              result.add(map.get(key)); //add the corresponding value to the result list
+          }
+      }
+      
       return result;
   }
 
