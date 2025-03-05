@@ -293,28 +293,29 @@ class myHashMap<K,V> {
             replace(key, value);
             return oldValue;
         }
-
-        int index = getBucketIndex(key);
-        HashNode<K, V> head = bucket.get(index);
-        HashNode<K, V> toAdd = new HashNode<>();
+        // find the corect bucket index and add the new key-value pair
+        int index = getBucketIndex(key); // getBucketIndex takes the key where it gets hashed and returns an index to place in the bucket array
+        HashNode<K, V> head = bucket.get(index); // retrieves the head of the linked list head at that index in the bucket array
+        HashNode<K, V> toAdd = new HashNode<>(); // a new node (toAdd) is created & it will hold the new key-value pair
         toAdd.key = key;
         toAdd.value = value;
-        if (head == null) {
-            bucket.set(index, toAdd);
-            size++;
+        
+        if (head == null) { //if bucket is empty
+            bucket.set(index, toAdd); //new node is placed in that buckket
+            size++; //size of hash map implemented
 
-        } else {
-            while (head != null) {
-                if (head.key.equals(key)) {
-                    head.value = value;
-                    size++;
+        } else { //bucket already has entries
+            while (head != null) { //iterate over the linked list if nodes
+                if (head.key.equals(key)) { //check if the key of the current node is equal to the key we are trying to insert
+                    head.value = value; //update the value of the current node to the new value
+                    size++; //increase the size of the hash map by one
                     break;
                 }
-                head = head.next;
+                head = head.next; //if key isn't found in the current node, the code moves to the next node in the linked list & the loop continues 
             }
-            if (head == null) {
-                head = bucket.get(index);
-                toAdd.next = head;
+            if (head == null) { //if head is null then we've reached the end of the linked list & the key was not found. therefore we need to add a new key-value pair
+                head = bucket.get(index); //re-points head to the beginning of the linked list at that bucket
+                toAdd.next = head; //set next pointed of the new node to point to the current first node in the linked list (to ensure new node will be inserted at the front of the linked list
                 bucket.set(index, toAdd);
                 size++;
             }
