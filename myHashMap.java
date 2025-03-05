@@ -432,10 +432,19 @@ class myHashMap<K,V> {
     public V replace(K key, V val) {
 
         /*
-         * ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE
+         * Find the index where the key should be located
          *
-         * Make sure you return the proper value based on the outcome of this method's
-         * replace (see method's prologue above).
+         * Retrieve the head node of the linked list at that bucket 
+         * 
+         * traverse the linked list to find the node with the matching key 
+         *   if the key matches the current node's key, replace the value
+         *     store the old value (bc we will need to return it)
+         *     replace the value with the new value 
+         *     return old value 
+         *
+         * move to the next node in the list 
+         *
+         * if the key is not found, return null 
          */
 
         return val;
