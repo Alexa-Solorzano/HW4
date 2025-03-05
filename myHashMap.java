@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Alexa Solorzano COMP 272 001 ***
  *
  * This hashMap object represents an over simplification of Java's implementation of HashMap within
  * Java's Collection Framework Library. You are to complete the following methods:
@@ -118,21 +118,21 @@ class HashNode<K,V> {
 
 class myHashMap<K,V> {
 
-    private static final float DEFAULT_LOAD_FACTOR = 0.7f;
-    private static final int   INITIAL_NUM_BUCKETS = 10;
+    private static final float DEFAULT_LOAD_FACTOR = 0.7f; // the load factor is set to 0.7 which means when the number of entries reaches over 70% of the total number of buckets the hashmap will resize to allow for more entries 
+    private static final int   INITIAL_NUM_BUCKETS = 10; // a bucket is an array slot that stores the linked list. 10 is the initial number of buckets/size of the underlying array that holds the buckets
 
-    ArrayList<HashNode<K, V>> bucket = new ArrayList<>();
-    int numBuckets = INITIAL_NUM_BUCKETS;
-    int size = 0;
+    ArrayList<HashNode<K, V>> bucket = new ArrayList<>(); // declaration of arraylist that will hold the linked list for collisions
+    int numBuckets = INITIAL_NUM_BUCKETS; //numBuckets (which can be subject to change) is the variable that stores the total number of buckets in the hash map
+    int size = 0; // keeps track of the # of key-value pairs stored in the hash map
 
-    public myHashMap() {
-        for (int i = 0; i < numBuckets; i++) {
-            bucket.add(null);
+    public myHashMap() { // initializes the myHashMap object
+        for (int i = 0; i < numBuckets; i++) { // initializes bucket array
+            bucket.add(null); // null means the buckets starts off as empty 
         }
     }
 
-    public int Size()           { return size; }
-    public boolean isEmpty()    { return size == 0; }
+    public int Size()           { return size; } // method returns the current # of entries in the hash map
+    public boolean isEmpty()    { return size == 0; } // method checks if the map is empty. returns true if there are no entries and false if it's not empty
 
 
     /**
