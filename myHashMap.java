@@ -263,7 +263,7 @@ class myHashMap<K,V> {
         head = head.next;
     }
         return null;
-    
+    }
 
 
     /**
@@ -293,7 +293,7 @@ class myHashMap<K,V> {
 
         return true; //show that the removal was successful 
     }
-    }
+    
 
 
     /**
