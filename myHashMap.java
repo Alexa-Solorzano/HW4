@@ -279,18 +279,19 @@ class myHashMap<K,V> {
 
     public boolean remove(K key, V val) {
 
-        V originalValue = get(key);
+        V originalValue = get(key); //used get(key) method to retrieve the current value (originalValue) associated with the key. If the key exists (which we need to make sure it is already mapped), originalValue should return the value associated with it. If not, originalValue will return null
 
-        if (originalValue == null || 
-           (! originalValue.equals(val)) ) {
-            return false;
+        if (originalValue == null || //if the key does not exist
+           (! originalValue.equals(val)) ) { //if the value associated with the key does not match the provided val
+            return false; //return false bc the key does not exist
         }
 
         // Key was found and its value equals the passed
         // parameter 'val'
         remove(key);
 
-        return true;
+        return true; //show that the removal was successful 
+    }
     }
 
 
